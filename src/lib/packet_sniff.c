@@ -3,5 +3,5 @@
 
 void configure_capture()
 {
-    printf("Hello configure_capture\n");
+    printf("Hello World\n");
 }
