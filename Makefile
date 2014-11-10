@@ -23,17 +23,13 @@ INCLUDES_CLIENT=-I$(SRC_DIR) -I$(CURDIR) \
 	        -I$(CLIENT_DIR) \
 	        -I$(LIB_DIR) \
 	        -lpthread \
+		-lpcap \
 
 # All .c files in src folder
 _SOURCES=$(shell find $(SRC_DIR) -type f -iname '*.[c]')
 _SOURCES_SERVER=$(shell find $(SERVER_DIR) -type f -iname '*.[c]')
 _SOURCES_CLIENT=$(shell find $(CLIENT_DIR) -type f -iname '*.[c]')
 _SOURCES_LIB=$(shell find $(LIB_DIR) -type f -iname '*.[c]')
-
-# Create 1GB file
-create:
-	@echo "Run some script :"
-	$(SCRIPT_DIR)/test.sh
 
 # Build
 build_server:

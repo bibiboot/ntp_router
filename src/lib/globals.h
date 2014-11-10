@@ -11,11 +11,21 @@
 #include <stdbool.h>
 #include <sys/time.h>
 #include <pthread.h>
+#include <pcap.h>
+#include <netpacket/packet.h>
+#include <net/ethernet.h> /* the L2 protocols */
 
 #include "config.h"
 #include "color.h"
 #include "cprotocol.h"
 #include "uthash.h"
+
+#define SNAP_LEN 1518
+#define INF1 "lo"
+#define INFADDR1 2
+#define INF2 "eth1"
+#define INFADDR2 3
+#define NUM_OF_INF 3
 
 FILE *LOGFILE;
 
@@ -25,9 +35,25 @@ typedef struct hashl {
     UT_hash_handle hh;
 } dict_node;
 
+struct interface {
+    char inf_name[64];
+    uint16_t addr;
+    int sock;
+    struct sockaddr_ll sk;
+    pthread_t thrd;
+};
+
+struct fwd_info {
+    uint16_t next_hop;
+    char fwding_inf_name[64];
+};
+
 struct globals {
     struct config config;
     dict_node *hashl;
+    struct interface inf[NUM_OF_INF];
 };
+
+char errbuf[PCAP_ERRBUF_SIZE];
 
 extern struct globals globals;

@@ -1,0 +1,229 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BIN_DIR	Makefile	/^BIN_DIR=$(CURDIR)\/bin$/;"	m
+CC	Makefile	/^CC=gcc$/;"	m
+CLIENT_DIR	Makefile	/^CLIENT_DIR=$(SRC_DIR)\/client$/;"	m
+CNTP_PORT	src/lib/cprotocol.h	17;"	d
+CONFIG_INIT	src/lib/config.h	3;"	d
+C_ETHLEN	src/lib/cprotocol.h	19;"	d
+C_HLEN	src/lib/cprotocol.h	22;"	d
+C_IPLEN	src/lib/cprotocol.h	20;"	d
+C_UDPLEN	src/lib/cprotocol.h	21;"	d
+DATA_DIR	Makefile	/^DATA_DIR=$(CURDIR)\/etc\/data$/;"	m
+DATA_PORT	src/lib/cprotocol.h	14;"	d
+DECLTYPE	deps/uthash/uthash.h	37;"	d
+DECLTYPE	deps/uthash/uthash.h	40;"	d
+DECLTYPE	deps/uthash/uthash.h	43;"	d
+DECLTYPE_ASSIGN	deps/uthash/uthash.h	47;"	d
+DECLTYPE_ASSIGN	deps/uthash/uthash.h	53;"	d
+ELMT_FROM_HH	deps/uthash/uthash.h	92;"	d
+HASH_ADD	deps/uthash/uthash.h	160;"	d
+HASH_ADD_INT	deps/uthash/uthash.h	260;"	d
+HASH_ADD_KEYPTR	deps/uthash/uthash.h	173;"	d
+HASH_ADD_PTR	deps/uthash/uthash.h	266;"	d
+HASH_ADD_STR	deps/uthash/uthash.h	254;"	d
+HASH_ADD_TO_BKT	deps/uthash/uthash.h	611;"	d
+HASH_BER	deps/uthash/uthash.h	355;"	d
+HASH_BKT_CAPACITY_THRESH	deps/uthash/uthash.h	89;"	d
+HASH_BLOOM_ADD	deps/uthash/uthash.h	127;"	d
+HASH_BLOOM_ADD	deps/uthash/uthash.h	136;"	d
+HASH_BLOOM_BITLEN	deps/uthash/uthash.h	108;"	d
+HASH_BLOOM_BITSET	deps/uthash/uthash.h	124;"	d
+HASH_BLOOM_BITTEST	deps/uthash/uthash.h	125;"	d
+HASH_BLOOM_BYTELEN	deps/uthash/uthash.h	109;"	d
+HASH_BLOOM_BYTELEN	deps/uthash/uthash.h	138;"	d
+HASH_BLOOM_FREE	deps/uthash/uthash.h	119;"	d
+HASH_BLOOM_FREE	deps/uthash/uthash.h	135;"	d
+HASH_BLOOM_MAKE	deps/uthash/uthash.h	110;"	d
+HASH_BLOOM_MAKE	deps/uthash/uthash.h	134;"	d
+HASH_BLOOM_SIGNATURE	deps/uthash/uthash.h	894;"	d
+HASH_BLOOM_TEST	deps/uthash/uthash.h	130;"	d
+HASH_BLOOM_TEST	deps/uthash/uthash.h	137;"	d
+HASH_CLEAR	deps/uthash/uthash.h	841;"	d
+HASH_CNT	deps/uthash/uthash.h	870;"	d
+HASH_COUNT	deps/uthash/uthash.h	869;"	d
+HASH_DEL	deps/uthash/uthash.h	270;"	d
+HASH_DELETE	deps/uthash/uthash.h	215;"	d
+HASH_DEL_IN_BKT	deps/uthash/uthash.h	625;"	d
+HASH_EMIT_KEY	deps/uthash/uthash.h	337;"	d
+HASH_EMIT_KEY	deps/uthash/uthash.h	344;"	d
+HASH_EXPAND_BUCKETS	deps/uthash/uthash.h	666;"	d
+HASH_FCN	deps/uthash/uthash.h	349;"	d
+HASH_FCN	deps/uthash/uthash.h	351;"	d
+HASH_FIND	deps/uthash/uthash.h	94;"	d
+HASH_FIND_INT	deps/uthash/uthash.h	258;"	d
+HASH_FIND_IN_BKT	deps/uthash/uthash.h	597;"	d
+HASH_FIND_PTR	deps/uthash/uthash.h	264;"	d
+HASH_FIND_STR	deps/uthash/uthash.h	252;"	d
+HASH_FNV	deps/uthash/uthash.h	377;"	d
+HASH_FSCK	deps/uthash/uthash.h	278;"	d
+HASH_FSCK	deps/uthash/uthash.h	330;"	d
+HASH_INITIAL_NUM_BUCKETS	deps/uthash/uthash.h	87;"	d
+HASH_INITIAL_NUM_BUCKETS_LOG2	deps/uthash/uthash.h	88;"	d
+HASH_ITER	deps/uthash/uthash.h	859;"	d
+HASH_ITER	deps/uthash/uthash.h	863;"	d
+HASH_JEN	deps/uthash/uthash.h	416;"	d
+HASH_JEN_MIX	deps/uthash/uthash.h	403;"	d
+HASH_KEYCMP	deps/uthash/uthash.h	594;"	d
+HASH_MAKE_TABLE	deps/uthash/uthash.h	141;"	d
+HASH_MUR	deps/uthash/uthash.h	554;"	d
+HASH_OAT	deps/uthash/uthash.h	387;"	d
+HASH_OOPS	deps/uthash/uthash.h	277;"	d
+HASH_OVERHEAD	deps/uthash/uthash.h	852;"	d
+HASH_REPLACE	deps/uthash/uthash.h	163;"	d
+HASH_REPLACE_INT	deps/uthash/uthash.h	262;"	d
+HASH_REPLACE_PTR	deps/uthash/uthash.h	268;"	d
+HASH_REPLACE_STR	deps/uthash/uthash.h	256;"	d
+HASH_SAX	deps/uthash/uthash.h	367;"	d
+HASH_SELECT	deps/uthash/uthash.h	803;"	d
+HASH_SFH	deps/uthash/uthash.h	468;"	d
+HASH_SIGNATURE	deps/uthash/uthash.h	893;"	d
+HASH_SORT	deps/uthash/uthash.h	718;"	d
+HASH_SRT	deps/uthash/uthash.h	719;"	d
+HASH_TO_BKT	deps/uthash/uthash.h	198;"	d
+INCLUDES_CLIENT	Makefile	/^INCLUDES_CLIENT=-I$(SRC_DIR) -I$(CURDIR) \\$/;"	m
+INCLUDES_SERVER	Makefile	/^INCLUDES_SERVER=-I$(SRC_DIR) -I$(CURDIR) \\$/;"	m
+INF1	src/lib/config.h	22;"	d
+INF2	src/lib/config.h	24;"	d
+INFADDR1	src/lib/config.h	23;"	d
+INFADDR2	src/lib/config.h	25;"	d
+KBLU	src/lib/color.h	5;"	d
+KCYN	src/lib/color.h	7;"	d
+KGRN	src/lib/color.h	3;"	d
+KMAG	src/lib/color.h	6;"	d
+KNRM	src/lib/color.h	1;"	d
+KRED	src/lib/color.h	2;"	d
+KWHT	src/lib/color.h	8;"	d
+KYEL	src/lib/color.h	4;"	d
+LIB_DIR	Makefile	/^LIB_DIR=$(SRC_DIR)\/lib$/;"	m
+LOGFILE	src/lib/globals.h	/^FILE *LOGFILE;$/;"	v
+MUR_FMIX	deps/uthash/uthash.h	545;"	d
+MUR_GETBLOCK	deps/uthash/uthash.h	523;"	d
+MUR_GETBLOCK	deps/uthash/uthash.h	539;"	d
+MUR_ONE_THREE	deps/uthash/uthash.h	533;"	d
+MUR_ONE_THREE	deps/uthash/uthash.h	537;"	d
+MUR_PLUS0_ALIGNED	deps/uthash/uthash.h	525;"	d
+MUR_PLUS1_ALIGNED	deps/uthash/uthash.h	526;"	d
+MUR_PLUS2_ALIGNED	deps/uthash/uthash.h	527;"	d
+MUR_PLUS3_ALIGNED	deps/uthash/uthash.h	528;"	d
+MUR_ROTL32	deps/uthash/uthash.h	544;"	d
+MUR_THREE_ONE	deps/uthash/uthash.h	531;"	d
+MUR_THREE_ONE	deps/uthash/uthash.h	535;"	d
+MUR_TWO_TWO	deps/uthash/uthash.h	532;"	d
+MUR_TWO_TWO	deps/uthash/uthash.h	536;"	d
+NACK_PORT	src/lib/cprotocol.h	15;"	d
+NODE1_IP	src/lib/cprotocol.h	10;"	d
+NODE1_MAC	src/lib/cprotocol.h	6;"	d
+NODE2_IP	src/lib/cprotocol.h	11;"	d
+NODE2_MAC	src/lib/cprotocol.h	7;"	d
+NODE3_IP	src/lib/cprotocol.h	12;"	d
+NODE3_MAC	src/lib/cprotocol.h	8;"	d
+NO_DECLTYPE	deps/uthash/uthash.h	39;"	d
+NUM_OF_INF	src/lib/config.h	12;"	d
+RESET	src/lib/color.h	9;"	d
+ROUTER_MAC	src/lib/cprotocol.h	5;"	d
+SCRIPT_DIR	Makefile	/^SCRIPT_DIR=$(CURDIR)\/scripts$/;"	m
+SERVER_DIR	Makefile	/^SERVER_DIR=$(SRC_DIR)\/server$/;"	m
+SHELL	Makefile	/^SHELL:=$(shell which bash) -e -o pipefail$/;"	m
+SNAP_LEN	src/lib/config.h	21;"	d
+SRC_DIR	Makefile	/^SRC_DIR=$(CURDIR)\/src$/;"	m
+UNAME_S	Makefile	/^UNAME_S:=$(shell uname -s)$/;"	m
+UTHASH_H	deps/uthash/uthash.h	25;"	d
+UTHASH_VERSION	deps/uthash/uthash.h	67;"	d
+UT_hash_bucket	deps/uthash/uthash.h	/^typedef struct UT_hash_bucket {$/;"	s
+UT_hash_bucket	deps/uthash/uthash.h	/^} UT_hash_bucket;$/;"	t	typeref:struct:UT_hash_bucket
+UT_hash_handle	deps/uthash/uthash.h	/^typedef struct UT_hash_handle {$/;"	s
+UT_hash_handle	deps/uthash/uthash.h	/^} UT_hash_handle;$/;"	t	typeref:struct:UT_hash_handle
+UT_hash_table	deps/uthash/uthash.h	/^typedef struct UT_hash_table {$/;"	s
+UT_hash_table	deps/uthash/uthash.h	/^} UT_hash_table;$/;"	t	typeref:struct:UT_hash_table
+WP	deps/uthash/uthash.h	529;"	d
+_CFLAGS	Makefile	/^_CFLAGS=-Wall -Wextra -Werror -Wshadow -Winline -D_GNU_SOURCE -std=c99 -g$/;"	m
+_SOURCES	Makefile	/^_SOURCES=$(shell find $(SRC_DIR) -type f -iname '*.[c]')$/;"	m
+_SOURCES_CLIENT	Makefile	/^_SOURCES_CLIENT=$(shell find $(CLIENT_DIR) -type f -iname '*.[c]')$/;"	m
+_SOURCES_LIB	Makefile	/^_SOURCES_LIB=$(shell find $(LIB_DIR) -type f -iname '*.[c]')$/;"	m
+_SOURCES_SERVER	Makefile	/^_SOURCES_SERVER=$(shell find $(SERVER_DIR) -type f -iname '*.[c]')$/;"	m
+add_to_hash	src/lib/hashl.c	/^void add_to_hash(dict_node *h)$/;"	f
+addr	src/lib/config.h	/^    uint16_t addr;$/;"	m	struct:interface
+bloom_bv	deps/uthash/uthash.h	/^   uint8_t *bloom_bv;$/;"	m	struct:UT_hash_table
+bloom_nbits	deps/uthash/uthash.h	/^   char bloom_nbits;$/;"	m	struct:UT_hash_table
+bloom_sig	deps/uthash/uthash.h	/^   uint32_t bloom_sig; \/* used only to test bloom exists in external analysis *\/$/;"	m	struct:UT_hash_table
+buckets	deps/uthash/uthash.h	/^   UT_hash_bucket *buckets;$/;"	m	struct:UT_hash_table
+config	src/lib/config.h	/^struct config {$/;"	s
+config	src/lib/globals.h	/^    struct config config;$/;"	m	struct:globals	typeref:struct:globals::config
+configure_capture	src/lib/packet_sniff.c	/^void *configure_capture(void *args)$/;"	f
+count	deps/uthash/uthash.h	/^   unsigned count;$/;"	m	struct:UT_hash_bucket
+create_socket	src/lib/sock_details.c	/^int create_socket()$/;"	f
+custeth	src/lib/cprotocol.h	/^    struct custom_ethernet custeth;$/;"	m	struct:custom_header	typeref:struct:custom_header::custom_ethernet
+custip	src/lib/cprotocol.h	/^    struct custom_ip custip;$/;"	m	struct:custom_header	typeref:struct:custom_header::custom_ip
+custom_ethernet	src/lib/cprotocol.h	/^struct custom_ethernet {$/;"	s
+custom_header	src/lib/cprotocol.h	/^struct custom_header {$/;"	s
+custom_ip	src/lib/cprotocol.h	/^struct custom_ip {$/;"	s
+custom_udp	src/lib/cprotocol.h	/^struct custom_udp {$/;"	s
+custudp	src/lib/cprotocol.h	/^    struct custom_udp custudp;$/;"	m	struct:custom_header	typeref:struct:custom_header::custom_udp
+data	src/lib/cprotocol.h	/^struct data {$/;"	s
+dest_ip	src/lib/cprotocol.h	/^    uint16_t dest_ip;$/;"	m	struct:custom_ip
+dest_mac	src/lib/cprotocol.h	/^    uint32_t dest_mac;$/;"	m	struct:data
+dict_node	src/lib/globals.h	/^} dict_node;$/;"	t	typeref:struct:hashl
+errbuf	src/lib/globals.h	/^char errbuf[PCAP_ERRBUF_SIZE];$/;"	v
+expand_mult	deps/uthash/uthash.h	/^   unsigned expand_mult;$/;"	m	struct:UT_hash_bucket
+find_in_hash	src/lib/hashl.c	/^dict_node *find_in_hash(int key)$/;"	f
+get16bits	deps/uthash/uthash.h	458;"	d
+get16bits	deps/uthash/uthash.h	461;"	d
+get16bits	deps/uthash/uthash.h	465;"	d
+globals	src/lib/globals.c	/^struct globals globals = {$/;"	v	typeref:struct:globals
+globals	src/lib/globals.h	/^struct globals {$/;"	s
+hashl	src/lib/globals.h	/^    dict_node *hashl;$/;"	m	struct:globals
+hashl	src/lib/globals.h	/^typedef struct hashl {$/;"	s
+hashv	deps/uthash/uthash.h	/^   unsigned hashv;                   \/* result of hash-fcn(key)        *\/$/;"	m	struct:UT_hash_handle
+hh	src/lib/globals.h	/^    UT_hash_handle hh;$/;"	m	struct:hashl
+hh_head	deps/uthash/uthash.h	/^   struct UT_hash_handle *hh_head;$/;"	m	struct:UT_hash_bucket	typeref:struct:UT_hash_bucket::UT_hash_handle
+hh_next	deps/uthash/uthash.h	/^   struct UT_hash_handle *hh_next;   \/* next hh in bucket order        *\/$/;"	m	struct:UT_hash_handle	typeref:struct:UT_hash_handle::UT_hash_handle
+hh_prev	deps/uthash/uthash.h	/^   struct UT_hash_handle *hh_prev;   \/* previous hh in bucket order    *\/$/;"	m	struct:UT_hash_handle	typeref:struct:UT_hash_handle::UT_hash_handle
+hho	deps/uthash/uthash.h	/^   ptrdiff_t hho; \/* hash handle offset (byte pos of hash handle in element *\/$/;"	m	struct:UT_hash_table
+ideal_chain_maxlen	deps/uthash/uthash.h	/^   unsigned ideal_chain_maxlen;$/;"	m	struct:UT_hash_table
+ineff_expands	deps/uthash/uthash.h	/^   unsigned ineff_expands, noexpand;$/;"	m	struct:UT_hash_table
+inf	src/lib/globals.h	/^    struct interface inf[NUM_OF_INF];$/;"	m	struct:globals	typeref:struct:globals::interface
+inf_name	src/lib/config.h	/^    char inf_name[64];$/;"	m	struct:interface
+init	src/client/main.c	/^void init()$/;"	f
+interface	src/lib/config.h	/^struct interface {$/;"	s
+is_cntp	src/lib/filter.c	/^bool is_cntp(const unsigned char *packet,void *args)$/;"	f
+key	deps/uthash/uthash.h	/^   void *key;                        \/* ptr to enclosing struct's key  *\/$/;"	m	struct:UT_hash_handle
+key	src/lib/globals.h	/^    int key;$/;"	m	struct:hashl
+keylen	deps/uthash/uthash.h	/^   unsigned keylen;                  \/* enclosing struct's key len     *\/$/;"	m	struct:UT_hash_handle
+log2_num_buckets	deps/uthash/uthash.h	/^   unsigned num_buckets, log2_num_buckets;$/;"	m	struct:UT_hash_table
+main	src/client/main.c	/^int main(int argc, char *argv[])$/;"	f
+main	src/server/main.c	/^int main(int argc, char *argv[])$/;"	f
+next	deps/uthash/uthash.h	/^   void *next;                       \/* next element in app order      *\/$/;"	m	struct:UT_hash_handle
+next_hop	src/lib/cprotocol.h	/^    uint16_t next_hop;$/;"	m	struct:custom_ethernet
+noexpand	deps/uthash/uthash.h	/^   unsigned ineff_expands, noexpand;$/;"	m	struct:UT_hash_table
+nonideal_items	deps/uthash/uthash.h	/^   unsigned nonideal_items;$/;"	m	struct:UT_hash_table
+num_buckets	deps/uthash/uthash.h	/^   unsigned num_buckets, log2_num_buckets;$/;"	m	struct:UT_hash_table
+num_items	deps/uthash/uthash.h	/^   unsigned num_items;$/;"	m	struct:UT_hash_table
+packet_capture	src/lib/packet_sniff.c	/^void packet_capture(unsigned char *args,const struct pcap_pkthdr *header, const unsigned char *packet)$/;"	f
+packet_len	src/lib/config.h	/^    uint16_t packet_len;$/;"	m	struct:config
+packet_print	src/lib/packet_print.c	/^void packet_print(const struct pcap_pkthdr *header,const u_char *packet)$/;"	f
+pattern	src/lib/cprotocol.h	/^struct pattern {$/;"	s
+port	src/lib/cprotocol.h	/^    uint16_t port;$/;"	m	struct:custom_udp
+prev	deps/uthash/uthash.h	/^   void *prev;                       \/* prev element in app order      *\/$/;"	m	struct:UT_hash_handle
+rtt	src/lib/config.h	/^    uint16_t rtt;$/;"	m	struct:config
+signature	deps/uthash/uthash.h	/^   uint32_t signature; \/* used only to find hash tables in external analysis *\/$/;"	m	struct:UT_hash_table
+sock	src/lib/config.h	/^    int sock;$/;"	m	struct:interface
+src_ip	src/lib/cprotocol.h	/^    uint16_t src_ip;$/;"	m	struct:custom_ip
+src_mac	src/lib/cprotocol.h	/^    uint32_t src_mac;$/;"	m	struct:data
+start	src/client/main.c	/^void start()$/;"	f
+tail	deps/uthash/uthash.h	/^   struct UT_hash_handle *tail; \/* tail hh in app order, for fast append    *\/$/;"	m	struct:UT_hash_table	typeref:struct:UT_hash_table::UT_hash_handle
+tbl	deps/uthash/uthash.h	/^   struct UT_hash_table *tbl;$/;"	m	struct:UT_hash_handle	typeref:struct:UT_hash_handle::UT_hash_table
+thrd	src/lib/config.h	/^    pthread_t thrd;$/;"	m	struct:interface
+uint32_t	deps/uthash/uthash.h	/^typedef unsigned int uint32_t;$/;"	t
+uint8_t	deps/uthash/uthash.h	/^typedef unsigned char uint8_t;$/;"	t
+uthash_expand_fyi	deps/uthash/uthash.h	83;"	d
+uthash_fatal	deps/uthash/uthash.h	70;"	d
+uthash_free	deps/uthash/uthash.h	76;"	d
+uthash_malloc	deps/uthash/uthash.h	73;"	d
+uthash_noexpand_fyi	deps/uthash/uthash.h	80;"	d
+value	src/lib/cprotocol.h	/^    uint64_t value;$/;"	m	struct:pattern
+value	src/lib/globals.h	/^    char value[100];$/;"	m	struct:hashl

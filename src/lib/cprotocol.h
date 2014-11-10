@@ -14,10 +14,12 @@
 #define DATA_PORT 0
 #define NACK_PORT 1
 
+#define CNTP_PORT 1
+
 #define C_ETHLEN 2
 #define C_IPLEN 4
 #define C_UDPLEN 2
-#define C_HLEN 8
+#define C_HLEN C_ETHLEN + C_IPLEN + C_UDPLEN
 
 struct data {
     uint32_t dest_mac;
@@ -29,7 +31,7 @@ struct pattern {
 };
 
 struct custom_ethernet {
-    uint16_t dest_mac;
+    uint16_t next_hop;
 };
 
 struct custom_ip {
@@ -39,6 +41,12 @@ struct custom_ip {
 
 struct custom_udp {
     uint16_t port;
+};
+
+struct custom_header {
+    struct custom_ethernet custeth;
+    struct custom_ip custip;
+    struct custom_udp custudp;
 };
 
 

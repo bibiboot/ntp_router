@@ -1,3 +1,3 @@
+#include "globals.h"
 
-
-void configure_capture();
+void *configure_capture(void *);
