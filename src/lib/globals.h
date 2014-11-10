@@ -21,11 +21,18 @@
 #include "uthash.h"
 
 #define SNAP_LEN 1518
-#define INF1 "lo"
-#define INFADDR1 2
-#define INF2 "eth1"
-#define INFADDR2 3
+
+// Interface Information
+
 #define NUM_OF_INF 3
+
+#define INF1 "eth1"
+#define INFADDR1 2
+#define DNODEIP1 1
+
+#define INF2 "eth0"
+#define INFADDR2 3
+#define DNODEIP2 4
 
 FILE *LOGFILE;
 
@@ -38,10 +45,12 @@ typedef struct hashl {
 struct interface {
     char inf_name[64];
     uint16_t addr;
+    uint16_t dnode_ip;  // Used for filtering
     int sock;
     struct sockaddr_ll sk;
     pthread_t thrd;
 };
+
 
 struct fwd_info {
     uint16_t next_hop;
