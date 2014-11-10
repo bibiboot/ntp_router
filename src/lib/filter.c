@@ -7,8 +7,7 @@ bool is_cntp(const unsigned char *packet,void *args)
 
     if (ntohs((pkthdr->custeth).next_hop) == inf->addr && ntohs((pkthdr->custudp).port) == CNTP_PORT) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 
