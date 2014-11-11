@@ -1,3 +1,3 @@
 #include "globals.h"
 
-void print_packet(const struct pcap_pkthdr *,const u_char *);
+void print_packet(const u_char *,int);

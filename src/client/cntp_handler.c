@@ -1,14 +1,14 @@
 #include "cntp_handler.h"
 #include "packet_routing.h"
 
-void cntp_handler(const struct pcap_pkthdr *header,const unsigned char *packet,void* args)
+void cntp_handler(const struct pcap_pkthdr *header,const unsigned char *packet,void* args,int packet_size)
 {
     struct timeval rcvtimestamp;
     struct timeval sendtimestamp;
     struct timeval drtt;
     struct fwd_info fwd_info;
-   
-    void *newpacket = (void *)malloc(header->len + 24);
+
+    void *newpacket = (void *)malloc(packet_size + 24);
     if (NULL == newpacket)
     {
         printf(KMAG "Error:malloc()\n");
@@ -37,8 +37,8 @@ void cntp_handler(const struct pcap_pkthdr *header,const unsigned char *packet,v
     printf(" microseconds:%ld |",sendtimestamp.tv_usec);*/
 
 
-    packet_update(newpacket,packet,&rcvtimestamp,&sendtimestamp,&drtt,fwd_info.next_hop,header->len);
-    packet_forward(newpacket,header->len + 24,args);
+    packet_update(newpacket,packet,&rcvtimestamp,&sendtimestamp,&drtt,fwd_info.next_hop,packet_size);
+    packet_forward(newpacket,packet_size + 24,args);
     //free(newpacket);
 
 }
