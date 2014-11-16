@@ -15,6 +15,7 @@
 #include <netpacket/packet.h>
 #include <net/ethernet.h> /* the L2 protocols */
 
+
 #include "config.h"
 #include "color.h"
 #include "cprotocol.h"
@@ -26,11 +27,11 @@
 
 #define NUM_OF_INF 3
 
-#define INF1 "eth1"
+#define INF1 "eth0"
 #define INFADDR1 2
 #define DNODEIP1 1
 
-#define INF2 "eth0"
+#define INF2 "lo"
 #define INFADDR2 3
 #define DNODEIP2 4
 
