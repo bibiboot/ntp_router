@@ -3,7 +3,6 @@
 #include "packet_sniff.h"
 #include "ipc_client.h"
 
-
 void init()
 {
     // interfac1
@@ -21,23 +20,21 @@ void init()
 
 void start()
 {
-    //pthread_create(&(globals.inf[0].thrd),0,&configure_capture,(void*)(&globals.inf[0]));
-    //pthread_create(&(globals.inf[1].thrd),0,&configure_capture,(void*)(&globals.inf[1]));
+    pthread_create(&(globals.inf[0].thrd),0,&configure_capture,(void*)(&globals.inf[0]));
+    pthread_create(&(globals.inf[1].thrd),0,&configure_capture,(void*)(&globals.inf[1]));
     pthread_create(&(globals.ipc_th) ,0 , start_ipc_client , NULL);
 
-    //pthread_join(globals.inf[0].thrd,NULL);
-    //pthread_join(globals.inf[1].thrd,NULL);
+    pthread_join(globals.inf[0].thrd,NULL);
+    pthread_join(globals.inf[1].thrd,NULL);
     pthread_join(globals.ipc_th, NULL);
 
 }
 
 int main(int argc, char *argv[])
 {
-    //init();
+    init();
 
     start();
 
     return 0;
 }
-
-
