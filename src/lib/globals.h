@@ -61,6 +61,8 @@ struct globals {
     struct config config;
     dict_node *hashl;
     struct interface inf[NUM_OF_INF];
+    pthread_t ipc_th;
+    char *drtt;
 };
 
 char errbuf[PCAP_ERRBUF_SIZE];
