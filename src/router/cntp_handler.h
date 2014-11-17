@@ -1,3 +1,3 @@
 #include "globals.h"
 
-void cntp_handler(const struct pcap_pkthdr *,const unsigned char *,void *,int);
+void cntp_handler(struct timestamp*,const unsigned char *,void *,int);

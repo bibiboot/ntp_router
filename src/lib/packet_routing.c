@@ -10,14 +10,12 @@ void get_fwding_info(const unsigned char *packet,struct fwd_info *args,void *arg
 
     struct custom_header *pkthdr = (struct custom_header *)packet;
 
-    if (ntohs((pkthdr->custip).dest_ip) == 5) {
-            args->next_hop = 3;
-    	    inf->sk.sll_ifindex = inf_to_index("eth0");
-            //strcpy(args->fwding_inf_name,"eth1");
-    } else if (ntohs((pkthdr->custip).dest_ip) == 6) {
+    if (ntohs((pkthdr->custip).dest_ip) == 4) {
             args->next_hop = 4;
     	    inf->sk.sll_ifindex = inf_to_index("eth1");
-            //strcpy(args->fwding_inf_name,"lo");
+    } else if (ntohs((pkthdr->custip).dest_ip) == 1) {
+            args->next_hop = 1;
+    	    inf->sk.sll_ifindex = inf_to_index("eth4");
     } else {
     }
 

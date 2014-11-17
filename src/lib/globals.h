@@ -27,11 +27,11 @@
 
 #define NUM_OF_INF 3
 
-#define INF1 "eth0"
+#define INF1 "eth4"
 #define INFADDR1 2
 #define DNODEIP1 1
 
-#define INF2 "lo"
+#define INF2 "eth1"
 #define INFADDR2 3
 #define DNODEIP2 4
 
@@ -48,10 +48,15 @@ struct interface {
     uint16_t addr;
     uint16_t dnode_ip;  // Used for filtering
     int sock;
+    int inf_index;
     struct sockaddr_ll sk;
     pthread_t thrd;
 };
 
+struct timestamp{
+    uint32_t sec;
+    uint32_t fsec;
+};
 
 struct fwd_info {
     uint16_t next_hop;

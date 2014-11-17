@@ -1,14 +1,14 @@
 #include "cntp_handler.h"
 #include "packet_routing.h"
 
-#define EXTRA_PAYLOAD_ADD 24
+#define EXTRA_PAYLOAD_ADD 16 
 
-void cntp_handler(const struct pcap_pkthdr *header,
+void cntp_handler(struct timestamp* recv_kern,
                   const unsigned char *packet,
                   void* args, int packet_size)
 {
-    struct timeval rcvtimestamp;
-    struct timeval sendtimestamp;
+    //struct timeval rcvtimestamp;
+    //struct timeval sendtimestamp;
     struct timeval drtt;
     struct fwd_info fwd_info;
 
@@ -22,8 +22,8 @@ void cntp_handler(const struct pcap_pkthdr *header,
     memset(&fwd_info, 0, sizeof(struct fwd_info));
 
     //Get receive timestamp
-    rcvtimestamp.tv_sec = (header->ts).tv_sec;
-    rcvtimestamp.tv_usec = (header->ts).tv_usec;
+    //rcvtimestamp.tv_sec = (header->ts).tv_sec;
+    //rcvtimestamp.tv_usec = (header->ts).tv_usec;
 
     get_fwding_info(packet, &fwd_info,args);
 
@@ -31,7 +31,7 @@ void cntp_handler(const struct pcap_pkthdr *header,
     gettimeofday(&drtt, NULL);
 
     //Get send timestamp
-    gettimeofday(&sendtimestamp, NULL);
+    //gettimeofday(&sendtimestamp, NULL);
 
     /*printf("| rcv timestamp seconds:%ld ",rcvtimestamp.tv_sec);
     printf(" microseconds:%ld |",rcvtimestamp.tv_usec);
@@ -40,10 +40,10 @@ void cntp_handler(const struct pcap_pkthdr *header,
     printf("| send timestamp seconds:%ld ",sendtimestamp.tv_sec);
     printf(" microseconds:%ld |",sendtimestamp.tv_usec);*/
 
-    packet_update(newpacket,packet, &rcvtimestamp, &sendtimestamp, &drtt,
+    packet_update(newpacket,packet,recv_kern,&drtt,
                   fwd_info.next_hop,packet_size);
 
-    packet_forward(newpacket,packet_size + 24,args);
+    packet_forward(newpacket,packet_size + EXTRA_PAYLOAD_ADD,args);
 
     //free(newpacket);
 }

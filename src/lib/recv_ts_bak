@@ -1,62 +1,40 @@
-#include "packet_sniff.h"
-#include "packet_print.h"
-#include "filter.h"
-#include "cntp_handler.h"
-#include "my_rawsocket_ts.h"
+#include "recv_ts.h"
+#include "utils.h"
+#include "packet_filter.h"
+#include "create_drtt_response.h"
+#include "my_socket.h"
 
-int calc_packet_size(uint64_t *temp)
+void*
+start_receiver(void *argument)
 {
-    int packet_size = 0;
-
-   /* Ethernet frame min packet size is 64 bytes - 60 bytes (payload + data) + 4 bytes FRC*/
-    while (1)
-    {
-	if (*temp == 0)
-   	{
-	     break;
-	}
-        temp++;
-	packet_size++;
-    }
-    packet_size = (packet_size * 8);
-    printf("\npacket_size is %d\n",packet_size);
-
-    return packet_size;
-
-}
-
-void *packet_capture(void *args)
-{
-    struct msghdr msg; //add this in globals.h
-    struct iovec entry;// add this in globals.h
-    struct control control;//add this in globals.h
+    struct msghdr msg;
+    struct iovec entry;
+    struct control control;
     char *payload;
-    int payload_len = 1024;
+    int payload_len = 1024; //[AB] put in config
     struct sockaddr_in from_addr;
     int ret;
     int s;
     int err_packet;
-    int packet_size;
     struct timeval recv_usr;
 
-    struct custom_header *hdr;//similar to AB's custom_packet_header
+    struct custom_packet_header* hdr;
     struct timestamp recv_kern;
     struct timestamp time_diff;
     struct timestamp *from_packet_kern;
-    struct interface *arg;//similar to AB's struct receiver_arg
+    struct receiver_arg* arg;
 
-    arg = (struct interface *)args;
+    arg = (struct receiver_arg*)argument;
 
-    //arg->inf_index = create_socket(arg->inf_name,&(arg->sk));
-    //already created in main.c
+    arg->inf_index = inf_to_index(arg->dev);
+    arg->send_sfd = create_sending_socket(arg->dev, &(arg->sk));
 
     payload = (char *)malloc(payload_len);
-    memset(payload,0,payload_len);
+    memset(payload, 0, payload_len);
 
-    printf(KMAG "Sniffing started\n" RESET);
-    s = create_recv_rawsocket_ts(arg->inf_name);
-    set_promisc(arg->inf_name,s);
-    setup_raw_msghdr(&msg,
+    s = create_recv_rawsocket_ts(arg->dev);
+    set_promisc(arg->dev, s);
+    setup_msghdr(&msg,
                  &entry,
                  &control,
                  payload,
@@ -74,36 +52,17 @@ void *packet_capture(void *args)
         gettimeofday(&recv_usr, 0);
 
         if (!err_packet) {
-            hdr = (struct custom_header*)payload;
+            hdr = (struct custom_packet_header*)payload;
 
-            if (true == is_cntp(payload,args)) {
-                printf(KMAG "CNTP PACKET RECEIVED \n" RESET);
-
-		if (ret <= 60) {
-                    packet_size = calc_packet_size((uint64_t *)payload);
-		}
-		else {
-		    packet_size = ret;
-		}
-
-	        packet_print(payload,packet_size);
+            if (!IS_SRC_ADDR_MATCH(hdr, arg->my_addr)){
 
                 printf("packet received: user space ts:%ld.%06ld:received %d bytes\n",
                         (long)recv_usr.tv_sec, (long)recv_usr.tv_usec, ret);
                 printf("packet received: kernel space ts:%ld.%06ld:received %d bytes\n",
                        (long)recv_kern.sec, (long)recv_kern.fsec, ret);
+                //print_drtt_packet((void*)payload);
 
-                cntp_handler(&recv_kern,payload,args,packet_size);
-            }
-	    else {
-                printf("packet received: user space ts:%ld.%06ld:received %d bytes\n",
-                        (long)recv_usr.tv_sec, (long)recv_usr.tv_usec, ret);
-	    	printf(KMAG "Ignoring Packet Not CNTP\n" RESET);
-	    }
-        }
-
-
-               /* if (IS_DRTT_REQUEST(hdr)) {
+                if (IS_DRTT_REQUEST(hdr)) {
                     printf("received drtt request\n");
                     create_drtt_response(hdr, arg->my_addr, CUSTOM_HEADER_SZ + TIMESTAMP_SZ, &recv_kern);
                     printf("processed response\n");
@@ -113,9 +72,9 @@ void *packet_capture(void *args)
                     printf("sending packet: user space ts:%ld.%06ld\n",
                             (long)recv_usr.tv_sec,
                             (long)recv_usr.tv_usec);
-                    //send_packet(arg->send_sfd, &(arg->sk),
-                      //          (void*)payload,
-                       //         ret);
+                    /*send_packet(arg->send_sfd, &(arg->sk),
+                                (void*)payload,
+                                ret);    */
                     send_packet(arg->send_sfd, &(arg->sk),
                                 (void*)payload,
                                 CUSTOM_HEADER_SZ + (2 * TIMESTAMP_SZ));
@@ -137,9 +96,7 @@ void *packet_capture(void *args)
         else{
             printf("encountered our packet\n");
         }
-        //print_rawpacket(&msg, ret, payload, s, 0);*/
+        //print_rawpacket(&msg, ret, payload, s, 0);
 
     }
-
 }
-
