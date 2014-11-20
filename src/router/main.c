@@ -1,7 +1,7 @@
 #include "globals.h"
-#include "sock_details.h"
-#include "packet_sniff.h"
 #include "ipc_client.h"
+#include "packet_sniff.h"
+#include "sock_details.h"
 
 void init()
 {
@@ -20,19 +20,17 @@ void init()
 
 void start()
 {
-    pthread_create(&(globals.inf[0].thrd),0,&packet_capture,(void*)(&globals.inf[0]));
-    //pthread_create(&(globals.inf[1].thrd),0,&packet_capture,(void*)(&globals.inf[1]));
-    //pthread_create(&(globals.ipc_th) ,0 , start_ipc_client , NULL);
+    pthread_create(&globals.recv_th, 0, &packet_capture,(void*)(&globals.inf[0]));
+    pthread_create(&globals.ipc_th, 0, start_ipc_client, NULL);
 
-    pthread_join(globals.inf[0].thrd,NULL);
-    //pthread_join(globals.inf[1].thrd,NULL);
-    //pthread_join(globals.ipc_th, NULL);
-
+    pthread_join(globals.recv_th, NULL);
+    pthread_join(globals.ipc_th, NULL);
 }
 
 int main(int argc, char *argv[])
 {
-    printf(RESET);
+    globals.src_node = atoi(argv[1]);
+
     init();
 
     start();

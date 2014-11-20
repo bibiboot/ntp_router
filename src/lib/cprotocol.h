@@ -11,16 +11,11 @@
 #define NODE2_IP 2
 #define NODE3_IP 3
 
-#define DATA_PORT 0
-#define NACK_PORT 1
+#define CNTP_PORT 3
 
-#define CNTP_PORT 1
+#define C_HLEN 68
 
-#define C_ETHLEN 2
-#define C_IPLEN 4
-#define C_UDPLEN 2
-#define C_HLEN C_ETHLEN + C_IPLEN + C_UDPLEN
-
+/*
 struct data {
     uint32_t dest_mac;
     uint32_t src_mac;
@@ -48,5 +43,14 @@ struct custom_header {
     struct custom_ip custip;
     struct custom_udp custudp;
 };
-
-
+*/
+/*
+ * Custom protocol
+ */
+struct custom_packet_header{
+    uint16_t next_hop_addr;
+    uint16_t dst_addr;
+    uint16_t src_addr;
+    uint16_t dst_port;
+    char padding[60];
+};

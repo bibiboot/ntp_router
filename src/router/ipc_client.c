@@ -30,12 +30,13 @@ void *start_ipc_client()
             perror("shmat");
             exit(1);
         }
+        strcpy(globals.drtt, "1270");
 
         /*
         * Now read what the server put in the memory.
         */
         printf("Read from memory = %s\n", globals.drtt);
-        globals.drtt = '*';
+        //globals.drtt = '*';
 
         sleep(globals.config.ipc_sleep_time);
     }

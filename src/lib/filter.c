@@ -1,16 +1,20 @@
 #include "filter.h"
 
-//HARDCODED
-bool is_cntp(const unsigned char *packet,void *args)
+/*
+ * Packet must match next_hop ==
+ *                   src_ip   == desired_dest_ip
+ *                   port     == CNTP_PORT
+ */
+bool is_cntp(unsigned char *packet)
 {
-    struct interface *inf = (struct interface *)args;
-    struct custom_header *pkthdr = (struct custom_header *)packet;
+    struct custom_packet_header *hdr = (struct custom_packet_header *)packet;
+    //printf("Next hop : %d\n", ntohs(hdr->next_hop_addr));
+    //printf("Port     : %d\n", ntohs(hdr->dst_port));
 
-    if (ntohs((pkthdr->custeth).next_hop) == inf->addr
-        && ntohs((pkthdr->custip).src_ip) == inf->dnode_ip
-        && ntohs((pkthdr->custudp).port) == CNTP_PORT) {
+    if (ntohs(hdr->next_hop_addr) == globals.src_node &&
+        ntohs(hdr->dst_port) == CNTP_PORT) {
         return true;
-    } else {
-        return false;
     }
+
+    return false;
 }

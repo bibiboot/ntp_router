@@ -1,4 +1,3 @@
 #include "globals.h"
 
-
-bool is_cntp(const unsigned char *,void *);
+bool is_cntp(unsigned char *);
