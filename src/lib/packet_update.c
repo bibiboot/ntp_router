@@ -11,9 +11,8 @@ void packet_update(unsigned char  *newpacket,
 
     memcpy(new_payload, &(recv_kern->sec), 4);
     memcpy(new_payload + 4, &(recv_kern->fsec), 4);
+
     struct timestamp *drtt_st = (struct timestamp *)(new_payload + 8);
     drtt_st->sec = 0;
     drtt_st->fsec = atoi(globals.drtt);
-
-    packet_print(newpacket, packet_len);
 }

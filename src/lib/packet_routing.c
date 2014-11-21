@@ -12,13 +12,14 @@ void get_fwding_info(unsigned char *packet,
     struct interface *inf = (struct interface *)arg;
     struct custom_packet_header *hdr = (struct custom_packet_header *)packet;
 
-    if (ntohs(hdr->dst_addr) == 4) {
-            args->next_hop = 4;
+    if (ntohs(hdr->dst_addr) == 2) {
+            args->next_hop = 2;
     	    inf->sk.sll_ifindex = inf_to_index("eth1");
     } else if (ntohs(hdr->dst_addr) == 1) {
             args->next_hop = 1;
     	    inf->sk.sll_ifindex = inf_to_index("eth4");
     } else {
+        printf(KRED "Route not found\n" RESET);
         //TODO
     }
 }

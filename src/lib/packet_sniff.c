@@ -70,13 +70,7 @@ void *packet_capture(void *args)
 
             printf("[Kernel][ %lu ] : Recieved DRTT request\n", kernel_recv_time);
             printf("[User  ][ %lu ] : Sending DRTT response\n", user_recv_time);
-
-            /*
-            printf("User space ts:%ld.%06ld:received %d bytes\n",
-                    (long)recv_usr.tv_sec, (long)recv_usr.tv_usec, num_bytes_read);
-            printf("Kernel space ts:%ld.%06ld:received %d bytes\n",
-                   (long)recv_kern.sec, (long)recv_kern.fsec, num_bytes_read);
-            */
+            printf("[Len   ][ %d  ] : Packet length receieved\n", num_bytes_read);
 
             cntp_handler(&recv_kern,payload,args, num_bytes_read);
 

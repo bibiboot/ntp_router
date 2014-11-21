@@ -21,15 +21,16 @@ void init()
 void start()
 {
     pthread_create(&globals.recv_th, 0, &packet_capture,(void*)(&globals.inf[0]));
-    pthread_create(&globals.ipc_th, 0, start_ipc_client, NULL);
+    //pthread_create(&globals.ipc_th, 0, start_ipc_client, NULL);
 
     pthread_join(globals.recv_th, NULL);
-    pthread_join(globals.ipc_th, NULL);
+    //pthread_join(globals.ipc_th, NULL);
 }
 
 int main(int argc, char *argv[])
 {
     globals.src_node = atoi(argv[1]);
+    globals.drtt = "1234";
 
     init();
 
