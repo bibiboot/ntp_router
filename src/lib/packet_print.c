@@ -110,32 +110,3 @@ void recv_packet_print(unsigned char *packet, int packet_len)
         break;
     }
 }
-
-void xmit_packet_print(unsigned char *packet, int packet_len)
-{
-    printf(KMAG "SNIFF: " RESET);
-    printf("Total [%d]: Header size [%d]: Payload [%d]: \n",
-           packet_len, C_HLEN, packet_len - C_HLEN);
-
-    struct custom_packet_header *hdr = (struct custom_packet_header *)packet;
-    printf("++++++++++++++++++++++++++++++++++++++\n");
-    printf("| NEXT_HOP | SRC_IP | DEST_IP | PORT |\n");
-    printf("++++++++++++++++++++++++++++++++++++++\n");
-    printf("| %8d | %6d | %7d | %4d |\n",ntohs(hdr->next_hop_addr),
-                                         ntohs(hdr->src_addr),
-                                         ntohs(hdr->dst_addr),
-                                         ntohs(hdr->dst_port));
-    printf("++++++++++++++++++++++++++++++++++++++\n");
-
-    //struct timestamp *remote_rx = (struct timestamp *)(packet + C_HLEN + TIMESTAMP_LEN);
-    //unsigned long remote_recv_time  = (unsigned long)remote_rx->sec * SECONDS + remote_rx->fsec * NANOSECONDS;
-    struct timestamp *drtt_st       = (struct timestamp *)(packet + C_HLEN + 2*TIMESTAMP_LEN);
-
-    printf("Local transmit timestamp   : %lu\n", get_kernel_timestamp(packet, C_HLEN + TIMESTAMP_LEN));
-
-    if (packet_len > C_HLEN + 2*TIMESTAMP_LEN)
-        printf("Remote receieve timestamp  : %lu\n", get_so_timestamp(packet, C_HLEN + 2*TIMESTAMP_LEN));
-
-    if (packet_len > C_HLEN + 3*TIMESTAMP_LEN)
-        printf("Roundtrip delay            : %ld\n" , drtt_st->fsec);
-}

@@ -30,7 +30,7 @@ void *start_ipc_client()
             perror("shmat");
             exit(1);
         }
-        strcpy(globals.drtt, "1270");
+        //strcpy(globals.drtt, "1270");
 
         /*
         * Now read what the server put in the memory.
