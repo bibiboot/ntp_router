@@ -5,7 +5,7 @@ void cntp_handler(struct timestamp* recv_kern,
                   unsigned char *packet,
                   void* args, int packet_len)
 {
-    unsigned char *newpacket = malloc(packet_len + 2*TIMESTAMP_LEN);
+    unsigned char *newpacket = malloc(packet_len + TIMESTAMP_LEN);
 
     if (newpacket == NULL) {
         printf(KMAG "Error:malloc()\n" RESET);
@@ -22,8 +22,8 @@ void cntp_handler(struct timestamp* recv_kern,
     memcpy(newpacket, packet, packet_len);
 
     printf("Update\n");
-    packet_update(newpacket, recv_kern, fwd_info.next_hop, packet_len);
+    packet_update(newpacket, fwd_info.next_hop, packet_len);
 
     printf("Forward\n");
-    packet_forward(newpacket, packet_len + 2*TIMESTAMP_LEN, args);
+    packet_forward(newpacket, packet_len + TIMESTAMP_LEN, args);
 }

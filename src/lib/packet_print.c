@@ -78,7 +78,7 @@ void recv_packet_print(unsigned char *packet, int packet_len)
 {
     print_header(packet, packet_len);
 
-    int payload_len = packet_len - 68;
+    int payload_len = packet_len - C_HLEN;
     unsigned char *payload = packet + C_HLEN;
 
     /*
@@ -90,23 +90,13 @@ void recv_packet_print(unsigned char *packet, int packet_len)
 
         unsigned long drtt           = get_drtt(payload, 0);
         unsigned long xmit_timestamp = get_kernel_timestamp(payload, TIMESTAMP_LEN);
+        unsigned long recv_timestamp = get_kernel_timestamp(payload, 2*TIMESTAMP_LEN);
 
         printf("Drtt                       : %lu\n", drtt);
         printf("Local transmit timestamp   : %lu\n", xmit_timestamp);
-        /*
-         * Check if recv timestamp also exists
-         * If do not exist, then do nothing as
-         * it will break out of the loop
-         */
-        if(payload_len - 3*TIMESTAMP_LEN > 0) {
-            unsigned long recv_timestamp = get_so_timestamp(payload, 2* TIMESTAMP_LEN);
-            printf("Local receive timestamp   : %lu\n", recv_timestamp);
-            payload += 3*TIMESTAMP_LEN;
-            payload_len -= 3*TIMESTAMP_LEN;
-        } else {
-            payload += 2*TIMESTAMP_LEN;
-            payload_len -= 2*TIMESTAMP_LEN;
-        }
-        break;
+        printf("Remote receieve timestamp  : %lu\n", recv_timestamp);
+
+        payload += 3*TIMESTAMP_LEN;
+        payload_len -= 3*TIMESTAMP_LEN;
     }
 }

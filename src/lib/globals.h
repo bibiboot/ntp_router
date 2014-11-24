@@ -26,8 +26,8 @@
 #define NUM_OF_INF 3
 #define TIMESTAMP_LEN 8
 
-#define INF1 "eth4"
-#define INF2 "eth1"
+#define INF1 "eth1"
+#define INF2 "eth4"
 
 #define INFADDR1 2
 #define DNODEIP1 1
